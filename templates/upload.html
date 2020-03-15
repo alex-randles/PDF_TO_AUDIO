@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <div class="heading">
+        <head>
+            <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}"/>
+            <h1> AudioPDF </h1>
+            <title>AudioPDF</title>
+            <img src="static/images/header_image.png" class="icon" alt="icon">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+        </head>
+
+    </div>
+    <h1 class="catchphrase">LISTEN TO ANY PDF FILE!</h1>
+   <body>
+   <div class="user_info">
+       <h1>Steps</h1>
+        <ul class="steps">
+          <li>Press "Browse" button</li>
+          <li>Choose a file</li>
+            <li>Choose Start and End Page if required</li>
+          <li>Press "Upload" Button</li>
+                      <li>You can now listen to your PDF or download the audio file.</li>
+        </ul>
+   </div>
+   <div class="upload_info">
+    <div class="form">
+      <form action = "." method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit" value="Upload"/>
+          Start Page: <input type="number" name="start_page">
+          End Page: <input type="number" name="end_page" >
+      </form>
+        </div>
+    <div class="audio">
+      <audio controls>
+          <source src="{{url_for('static', filename=audio_file) }}" type="audio/ogg">
+      </audio>
+       </div>
+     </div>
+    </body>
+
+</html>
